@@ -51,7 +51,8 @@ public class Book implements Operations, Serializable {
 
     @Override
     public String remove() {
-        staticID--;
+        if (this.ID == staticID - 1)
+            staticID--;
         return Files.remove(this);
     }
 

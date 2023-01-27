@@ -9,6 +9,7 @@ import person.Manager;
 import org.apache.commons.lang3.math.NumberUtils;
 import utils.ArraysHelper;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class ManagersCLI extends MainCLI {
@@ -22,7 +23,7 @@ public class ManagersCLI extends MainCLI {
                 "Managers Menu"
                 Please select your desired menu:
                                 
-                1. Old Manager
+                1. Old manager
                 2. New Manager
                 3. return to Start Menu
                                 
@@ -34,12 +35,13 @@ public class ManagersCLI extends MainCLI {
         while (true) {
             System.out.print(">");
 
-            input = scanner.next();
+            input = scanner.nextLine();
 
             switch (input) {
                 case "1":
+                    newLine();
                     System.out.print("Enter your Manager ID ('0' to return): ");
-                    String ID = scanner.next();
+                    String ID = scanner.nextLine();
 
                     String check = checkBeforeContinue(ID);
                     if (check != null) {
@@ -99,7 +101,7 @@ public class ManagersCLI extends MainCLI {
         while (true) {
             System.out.print(">");
 
-            input = scanner.next();
+            input = scanner.nextLine();
 
             switch (input) {
                 case "1":
@@ -133,6 +135,7 @@ public class ManagersCLI extends MainCLI {
                         System.out.println(removeManager());
                     else
                         System.out.println("This list is only accessible to the Main Manager.");
+                    //  The main manager is the manager with the ID of '1'
                     newLine();
                     managersMenu();
                     break;
@@ -165,7 +168,7 @@ public class ManagersCLI extends MainCLI {
         while (true) {
             System.out.print(">");
 
-            input = scanner.next();
+            input = scanner.nextLine();
 
             switch (input) {
                 case "1":
@@ -203,14 +206,13 @@ public class ManagersCLI extends MainCLI {
             System.out.print("Enter your name ('0' to return): ");
             String name = scanner.nextLine();
 
-            String check = checkBeforeContinue(name);
-            if (check != null)
-                return check;
+            if (Objects.equals(name, "0"))
+                return "";
 
             System.out.print("Enter your nationalCode ('0' to return): ");
-            String nationalCode = scanner.next();
+            String nationalCode = scanner.nextLine();
 
-            check = checkBeforeContinue(nationalCode);
+            String check = checkBeforeContinue(nationalCode);
             if (check != null)
                 return check;
 
@@ -230,7 +232,7 @@ public class ManagersCLI extends MainCLI {
     public static String removeManager() {
         try {
             System.out.print("Enter the manager's ID ('0' to return): ");
-            String ID = scanner.next();
+            String ID = scanner.nextLine();
 
             String check = checkBeforeContinue(ID);
             if (check != null)
@@ -258,16 +260,14 @@ public class ManagersCLI extends MainCLI {
             System.out.print("Enter the book's name ('0' to return): ");
             String name = scanner.nextLine();
 
-            String check = checkBeforeContinue(name);
-            if (check != null)
-                return check;
+            if (Objects.equals(name, "0"))
+                return "";
 
             System.out.print("Enter the book's author ('0' to return): ");
             String author = scanner.nextLine();
 
-            check = checkBeforeContinue(author);
-            if (check != null)
-                return check;
+            if (Objects.equals(name, "0"))
+                return "";
 
             newLine();
 
@@ -288,16 +288,14 @@ public class ManagersCLI extends MainCLI {
             System.out.print("Enter the book's name ('0' to return): ");
             String name = scanner.nextLine();
 
-            String check = checkBeforeContinue(name);
-            if (check != null)
-                return check;
+            if (Objects.equals(name, "0"))
+                return "";
 
             System.out.print("Enter the book's author ('0' to return): ");
             String author = scanner.nextLine();
 
-            check = checkBeforeContinue(author);
-            if (check != null)
-                return check;
+            if (Objects.equals(author, "0"))
+                return "";
 
             newLine();
 

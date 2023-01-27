@@ -10,7 +10,7 @@ public class MyRentFiles extends Files {
     protected static final String rentsPath = path + "\\rents.txt";
 
     public static void readRents() {
-        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(rentsPath));) {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(rentsPath))) {
             while (true) {
                 Rent rent = (Rent) in.readObject();
                 rents.add(rent);

@@ -17,6 +17,8 @@ public abstract class Files {
     protected static ArrayList<Rent> rents = new ArrayList<>();
 
     public static void readFiles() {
+        //  Using this code, we can create the 'LibraryFiles' folder in any system
+        //  in the chosen path, if it does not exist
         new File(path).mkdir();
 
         MyManagerFiles.readManagers();

@@ -9,7 +9,7 @@ public class MyBookFiles extends Files {
     protected static final String booksPath = path + "\\books.txt";
 
     public static void readBooks() {
-        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(booksPath));) {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(booksPath))) {
             while (true) {
                 Book book = (Book) in.readObject();
                 books.add(book);
@@ -61,7 +61,7 @@ public class MyBookFiles extends Files {
 
     public static void showBooks() {
         if (books.size() == 0)
-            System.out.println("No member was found.");
+            System.out.println("No books was found.");
         else
             for (Book book : books)
                 System.out.println(book);

@@ -11,7 +11,7 @@ public class MyMemberFiles extends Files {
     protected static final String membersPath = path + "\\members.txt";
 
     public static void readMembers() {
-        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(membersPath));) {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(membersPath))) {
             while (true) {
                 Member member = (Member) in.readObject();
                 members.add(member);

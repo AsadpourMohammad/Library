@@ -10,7 +10,7 @@ public class MyManagerFiles extends Files implements Serializable {
     protected static final String managersPath = path + "\\managers.txt";
 
     public static void readManagers() {
-        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(managersPath));) {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(managersPath))) {
             while (true) {
                 Manager manager = (Manager) in.readObject();
                 managers.add(manager);

@@ -10,7 +10,7 @@ import java.util.Date;
 public class Rent implements Operations, Serializable {
     private final Member member;
     private final Book book;
-    private final Date date;
+    private Date date;
 
     public Rent(Member member, Book book) {
         this.member = member;
@@ -29,6 +29,10 @@ public class Rent implements Operations, Serializable {
 
     public Date getDate() {
         return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     @Override

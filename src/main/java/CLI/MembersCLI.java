@@ -33,13 +33,13 @@ public class MembersCLI extends MainCLI {
         while (true) {
             System.out.print(">");
 
-            input = scanner.next();
+            input = scanner.nextLine();
 
             switch (input) {
                 case "1":
                     newLine();
                     System.out.print("Enter your Member ID ('0' to return): ");
-                    String ID = scanner.next();
+                    String ID = scanner.nextLine();
 
                     String check = checkBeforeContinue(ID);
                     if (check != null) {
@@ -63,6 +63,7 @@ public class MembersCLI extends MainCLI {
                     MembersMenu();
                     break outer;
                 case "2":
+                    newLine();
                     String answer = addMember();
                     if (answer != null && !answer.equals(""))
                         System.out.println(answer);
@@ -97,7 +98,7 @@ public class MembersCLI extends MainCLI {
         while (true) {
             System.out.print(">");
 
-            input = scanner.next();
+            input = scanner.nextLine();
 
             switch (input) {
                 case "1":
@@ -146,7 +147,7 @@ public class MembersCLI extends MainCLI {
         while (true) {
             System.out.print(">");
 
-            input = scanner.next();
+            input = scanner.nextLine();
 
             switch (input) {
                 case "1":
@@ -198,7 +199,7 @@ public class MembersCLI extends MainCLI {
                 return "";
 
             System.out.print("Enter your nationalCode ('0' to return): ");
-            String nationalCode = scanner.next();
+            String nationalCode = scanner.nextLine();
 
             String check = checkBeforeContinue(nationalCode);
             if (check != null)
@@ -221,7 +222,7 @@ public class MembersCLI extends MainCLI {
     public static String removeMember() {
         try {
             System.out.print("Enter your Member ID ('0' to return): ");
-            String ID = scanner.next();
+            String ID = scanner.nextLine();
 
             String check = checkBeforeContinue(ID);
             if (check != null)
