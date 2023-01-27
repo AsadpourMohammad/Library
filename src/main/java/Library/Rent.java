@@ -1,30 +1,22 @@
-package Library;
+package library;
 
-import File.Files;
-import Interface.Operations;
-import Person.Member;
+import files.Files;
+import interfaces.Operations;
+import person.Member;
 
 import java.io.Serializable;
 import java.util.Date;
 
 public class Rent implements Operations, Serializable {
-    static int staticID = 1;
-
-    protected Member member;
-    protected Book book;
-    protected Date date;
-    protected int ID;
+    private final Member member;
+    private final Book book;
+    private final Date date;
 
     public Rent(Member member, Book book) {
         this.member = member;
         this.book = book;
-        this.book.borrowed = true;
+        this.book.setBorrowed(true);
         this.date = new Date();
-        this.ID = staticID;
-        staticID++;
-    }
-    public static void setStaticID(int staticID) {
-        Rent.staticID = staticID;
     }
 
     public Member getMember() {
@@ -39,15 +31,6 @@ public class Rent implements Operations, Serializable {
         return date;
     }
 
-    public int getID() {
-        return ID;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("%s. %s rented %s at %s.", ID, member.getName(), book.getName(), date.toString());
-    }
-
     @Override
     public String save() {
         return Files.save(this);
@@ -55,8 +38,12 @@ public class Rent implements Operations, Serializable {
 
     @Override
     public String remove() {
-        staticID--;
-        this.book.borrowed = false;
+        this.getBook().setBorrowed(false);
         return Files.remove(this);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s rented %s(%s) at %s.", member.getName(), book.getName(), book.getID(), date);
     }
 }

@@ -1,15 +1,9 @@
-import CLI.MainCLI;
-import File.MyBookFiles;
-import File.MyManagerFiles;
-import File.MyMemberFiles;
-import File.MyRentFiles;
+import cli.MainCLI;
+import files.Files;
 
 public class App {
     public static void main(String[] args) {
-        MyManagerFiles.readManagers();
-        MyMemberFiles.readMembers();
-        MyBookFiles.readBooks();
-        MyRentFiles.readRents();
+        Files.readFiles();
 
         MainCLI.startMenu();
     }

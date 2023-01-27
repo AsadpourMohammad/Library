@@ -1,27 +1,23 @@
-package Library;
+package library;
 
-import File.Files;
-import Interface.Operations;
+import files.Files;
+import interfaces.Operations;
+
 import java.io.Serializable;
 
 public class Book implements Operations, Serializable {
+    private static int staticID = 1;
 
-    static int staticID = 1;
-
-    protected String name;
-    protected String author;
-    protected int ID;
-    protected boolean borrowed;
+    private final String name;
+    private final String author;
+    private final int ID;
+    private boolean borrowed = false;
 
     public Book(String name, String author) {
         this.name = name;
         this.author = author;
         this.ID = staticID;
         staticID++;
-    }
-
-    public static void setStaticID(int staticID) {
-        Book.staticID = staticID;
     }
 
     public String getName() {
@@ -36,13 +32,16 @@ public class Book implements Operations, Serializable {
         return ID;
     }
 
+    public static void setStaticID(int staticID) {
+        Book.staticID = staticID;
+    }
+
     public boolean isBorrowed() {
         return borrowed;
     }
 
-    @Override
-    public String toString() {
-        return String.format("%s. %s, by %s", ID, name, author);
+    public void setBorrowed(boolean borrowed) {
+        this.borrowed = borrowed;
     }
 
     @Override
@@ -54,5 +53,10 @@ public class Book implements Operations, Serializable {
     public String remove() {
         staticID--;
         return Files.remove(this);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s. %s, by %s", ID, name, author);
     }
 }

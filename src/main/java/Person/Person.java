@@ -1,16 +1,15 @@
-package Person;
+package person;
 
-import Interface.Operations;
+import interfaces.Operations;
 
 import java.io.Serializable;
 
 public abstract class Person implements Operations, Serializable {
-
     protected final String name;
-    protected final int nationalCode;
+    protected final long nationalCode;
     protected int ID;
 
-    public Person(String name, int nationalCode) {
+    public Person(String name, long nationalCode) {
         this.name = name;
         this.nationalCode = nationalCode;
     }
@@ -19,7 +18,7 @@ public abstract class Person implements Operations, Serializable {
         return name;
     }
 
-    public int getNationalCode() {
+    public long getNationalCode() {
         return nationalCode;
     }
 
