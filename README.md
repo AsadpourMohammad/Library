@@ -3,5 +3,5 @@
     A Java project about Library Management using a CLI
 
 <p align="center" width="100%">
-    <img width="63%" src="https://github.com/AsadpourMohammad/Library-Management/assets/107719378/6bb238a9-3d86-4851-8b5c-873450ce96b3">
+    <img width="63%" src="https://github.com/AsadpourMohammad/Library-Management/assets/107719378/a2cf9797-ec12-43b4-935c-b7768305a939">
 </p>
